@@ -1,3 +1,6 @@
 .idea
 out
 SelectIndex.iml
+.classpath
+.project
+.settings
