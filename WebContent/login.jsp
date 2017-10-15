@@ -10,17 +10,18 @@
 <body>
     <div class="container">
         <!-- login form box -->
-        <form class="form-signin" method="post" action="../src/model/LoginInfo.java" name="loginform">
+        <form class="form-signin" method="post" action="LoginServlet" name="loginform">
+
             <h2 class="form-signin-heading">请登录</h2>
             
             <!-- <label for="login_input_username">Username</label> -->
-            <input id="login_input_username" class="login_input form-control" type="text" name="user_name" placeholder="请输入用户名" required autofocus/>
+            <input id="login_input_username" class="login_input form-control" type="text" name="userName" placeholder="请输入用户名" required autofocus/>
 
             <!-- <label for="login_input_password">Password</label> -->
-            <input id="login_input_password" class="login_input form-control" type="password" name="user_password" placeholder="请输入密码" autocomplete="off" required />
+            <input id="login_input_password" class="login_input form-control" type="password" name="userPasswd" placeholder="请输入密码" autocomplete="off" required />
 
             <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="登录" />
-            <a href="register.php" class="btn btn-lg btn-primary btn-block">注册</a>
+
         </form>
     </div>
 </body>

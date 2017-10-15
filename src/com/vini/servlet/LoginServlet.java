@@ -34,8 +34,26 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+        response.setContentType ( "text/html" ) ;   
+        // get username  
+        String sUserName = request.getParameter("userName") ;   
+        // get password  
+        String sPasswd = request.getParameter("userPasswd") ;    
+        
+        //test  
+        //System.out.println("username:"+sUserName+"\r\n"+"password:"+sPasswd);  
+        
+        request . getSession( ).setAttribute ( "UserName" , sUserName ) ;   
+        request.getSession().setAttribute("password", sPasswd); 
+        
+        //just compare with hym&123,not do database operation  
+        if(sUserName.equals("lzf")&&sPasswd.equals("123"))  
+        {  
+            response. sendRedirect ("index.jsp") ;   
+        }  
+        else {  
+            response. sendRedirect ("login_failure.jsp") ;   
+        } 
 	}
 
 }
