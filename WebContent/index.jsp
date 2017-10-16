@@ -21,16 +21,16 @@
   </style>
   <script>
       var data = [
-          {"productid":"FI-SW-01","productname":"Koi","unitcost":10.00,"level":"P","listprice":36.50,"attr1":"Large","itemid":"EST-1"},
-          {"productid":"K9-DL-01","productname":"Dalmation","unitcost":12.00,"level":"P","listprice":18.50,"attr1":"Spotted Adult Female","itemid":"EST-10"},
-          {"productid":"RP-SN-01","productname":"Rattlesnake","unitcost":12.00,"level":"P","listprice":38.50,"attr1":"Venomless","itemid":"EST-11"},
-          {"productid":"RP-SN-01","productname":"Rattlesnake","unitcost":12.00,"level":"P","listprice":26.50,"attr1":"Rattleless","itemid":"EST-12"},
-          {"productid":"RP-LI-02","productname":"Iguana","unitcost":12.00,"level":"P","listprice":35.50,"attr1":"Green Adult","itemid":"EST-13"},
-          {"productid":"FL-DSH-01","productname":"Manx","unitcost":12.00,"level":"N","listprice":158.50,"attr1":"Tailless","itemid":"EST-14"},
-          {"productid":"FL-DSH-01","productname":"Manx","unitcost":12.00,"level":"P","listprice":83.50,"attr1":"With tail","itemid":"EST-15"},
-          {"productid":"FL-DLH-02","productname":"Persian","unitcost":12.00,"level":"P","listprice":23.50,"attr1":"Adult Female","itemid":"EST-16"},
-          {"productid":"FL-DLH-02","productname":"Persian","unitcost":12.00,"level":"N","listprice":89.50,"attr1":"Adult Male","itemid":"EST-17"},
-          {"productid":"AV-CB-01","productname":"Amazon Parrot","unitcost":92.00,"level":"N","listprice":63.50,"attr1":"Adult Male","itemid":"EST-18"}
+          {"productid":"FI-SW-01","productname":"Koi","attr1":10.00,"citylevel":"P","listprice":36.50,"attr1":"Large","itemid":"EST-1"},
+          {"productid":"K9-DL-01","productname":"Dalmation","attr1":12.00,"citylevel":"P","listprice":18.50,"attr1":"Spotted Adult Female","itemid":"EST-10"},
+          {"productid":"RP-SN-01","productname":"Rattlesnake","attr1":12.00,"citylevel":"P","listprice":38.50,"attr1":"Venomless","itemid":"EST-11"},
+          {"productid":"RP-SN-01","productname":"Rattlesnake","attr1":12.00,"citylevel":"P","listprice":26.50,"attr1":"Rattleless","itemid":"EST-12"},
+          {"productid":"RP-LI-02","productname":"Iguana","attr1":12.00,"citylevel":"P","listprice":35.50,"attr1":"Green Adult","itemid":"EST-13"},
+          {"productid":"FL-DSH-01","productname":"Manx","attr1":12.00,"citylevel":"N","listprice":158.50,"attr1":"Tailless","itemid":"EST-14"},
+          {"productid":"FL-DSH-01","productname":"Manx","attr1":12.00,"citylevel":"P","listprice":83.50,"attr1":"With tail","itemid":"EST-15"},
+          {"productid":"FL-DLH-02","productname":"Persian","attr1":12.00,"citylevel":"P","listprice":23.50,"attr1":"Adult Female","itemid":"EST-16"},
+          {"productid":"FL-DLH-02","productname":"Persian","attr1":12.00,"citylevel":"N","listprice":89.50,"attr1":"Adult Male","itemid":"EST-17"},
+          {"productid":"AV-CB-01","productname":"Amazon Parrot","attr1":92.00,"citylevel":"N","listprice":63.50,"attr1":"Adult Male","itemid":"EST-18"}
       ];
       $(function(){
           var dg = $('#dg').datagrid({
@@ -43,22 +43,22 @@
               options:{precision:1},
               op:['equal','notequal','less','greater']
           },{
-              field:'unitcost',
+              field:'attr1',
               type:'numberbox',
               options:{precision:1},
               op:['equal','notequal','less','greater']
           },{
-              field:'level',
+              field:'citylevel',
               type:'combobox',
               options:{
                   panelHeight:'auto',
                   data:[{value:'',text:'all'},{value:'P',text:'二线'},{value:'N',text:'三线'}],
                   onChange:function(value){
                       if (value == ''){
-                          dg.datagrid('removeFilterRule', 'level');
+                          dg.datagrid('removeFilterRule', 'citylevel');
                       } else {
                           dg.datagrid('addFilterRule', {
-                              field: 'level',
+                              field: 'citylevel',
                               op: 'equal',
                               value: value
                           });
@@ -95,16 +95,16 @@
   <tr>
     <th data-options="field:'productid',width:70,align:'center'">项目编号</th>
    <th data-options="field:'productname',width:70,align:'center'">项目名称</th>
-    <th data-options="field:'level',width:70,align:'center'">城市级别</th>
-   <th data-options="field:'status',width:70,align:'center'">甲方单位</th>
-   <th data-options="field:'status',width:70,align:'center'">甲方单位电话</th>
-    <th data-options="field:'status',width:70,align:'center'">所属行业</th>
-    <th data-options="field:'status',width:70,align:'center'">所属省</th>
-    <th data-options="field:'status',width:70,align:'center'">所属市</th>
+    <th data-options="field:'citylevel',width:70,align:'center'">城市级别</th>
+   <th data-options="field:'citylevel',width:70,align:'center'">甲方单位</th>
+   <th data-options="field:'citylevel',width:70,align:'center'">甲方单位电话</th>
+    <th data-options="field:'citylevel',width:70,align:'center'">所属行业</th>
+    <th data-options="field:'citylevel',width:70,align:'center'">所属省</th>
+    <th data-options="field:'citylevel',width:70,align:'center'">所属市</th>
     <th data-options="field:'listprice',width:80,align:'center'">定标时间</th>
-   <th data-options="field:'status',width:70,align:'center'">中标单位</th>
+   <th data-options="field:'citylevel',width:70,align:'center'">中标单位</th>
     <th data-options="field:'listprice',width:80,align:'center'">中标单位电话</th>
-    <th data-options="field:'status',width:70,align:'center'">中标产品</th>
+    <th data-options="field:'citylevel',width:70,align:'center'">中标产品</th>
    <th data-options="field:'listprice',width:80,align:'center'">中标金额</th>
   </tr>
   </thead>
@@ -118,7 +118,7 @@
 			data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
-				<th data-options="field:'itemid',width:80">
+				<th data-options="field:'itemid',width:80">项目编号
 				<select>
   					<option value ="selItem ID">selItem ID</option>
   					<option value ="saab">Saab</option>
@@ -126,11 +126,30 @@
   					<option value="audi">Audi</option>
 				</select>
 				</th>
-				<th data-options="field:'productid',width:100">Product</th>
-				<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-				<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-				<th data-options="field:'attr1',width:250">Attribute</th>
-				<th data-options="field:'status',width:60,align:'center'">Status</th>
+				<th data-options="field:'productname',width:100,align:'center'">项目名称</th>
+				<th data-options="field:'citylevel',width:60,align:'center'">城市级别</th>
+				<th data-options="field:'partyA',width:100,align:'center'">甲方单位</th>
+				<th data-options="field:'attr1',width:80,align:'center'">甲方单位电话</th>
+				<th data-options="field:'job',width:80,align:'center'">所属行业</th>
+				<th data-options="field:'province',width:80,align:'center'">
+                <input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm'" style="width:120px"></input>
+                 <div id="mm">
+                    <div data-options="name:'all'">所属省</div>
+                    <div data-options="name:'sports'">江西</div>
+                 </div>
+                    </th>
+				<th data-options="field:'city',width:80,align:'center'">
+				<input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm'" style="width:120px"></input>
+                 <div id="mm">
+                    <div data-options="name:'all'">所属市</div>
+                    <div data-options="name:'sports'">南昌</div>
+                    </div>
+                    </th>
+				<th data-options="field:'time',width:80,align:'center'">中标时间</th>
+				<th data-options="field:'bid',width:80,align:'center'">中标单位</th>
+				<th data-options="field:'attr2',width:250">中标单位电话</th>
+				<th data-options="field:'bidproduct',width:80,align:'ceneter'">中标产品</th>
+				<th data-options="field:'money',width:80,align:'center'">中标金额</th>
 			</tr>
 		</thead>
 	</table>
