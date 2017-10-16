@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 						if(rs.next()){
 							user.setUsername(rs.getString("user_name"));
 							user.setPassword(rs.getString("user_passwd"));
-							
+						 	
 							if(getPasswd.equals(user.getPassword())) {
 								isRight = true;
 							}
@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		else{
 			request.setAttribute("loginfail", message);
-			request.getRequestDispatcher("loginFail.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

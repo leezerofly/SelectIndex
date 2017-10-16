@@ -12,13 +12,14 @@
   <script type="text/javascript" src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
   <script type="text/javascript" src="js/datagrid-filter.js"></script>
 
-
+  <script type="text/javascript" src="js/ajax.js"></script>
 
   <style>
     .icon-filter{
       background:url('img/filter.png') no-repeat center center;
     }
   </style>
+  
   <script>
       $(function(){
           var dg = $('#dg').datagrid({
@@ -58,7 +59,7 @@
       });
   </script>
 </head>
-<body>
+<body onload="showData()">
 <h1>DataGrid Filter Row</h1>
 
 <h2>Search Category</h2>
@@ -77,7 +78,7 @@
 
 <table id="dg" title="DataGrid" style="width:100%;height:80%" data-options="
 				singleSelect:true,
-				url:'datagrid_data1.json'
+				data:data
 			">
   <thead>
   <tr>
@@ -97,6 +98,9 @@
   </tr>
   </thead>
 </table>
+
+<input type ="button" value="1234" onclick ="showData()">
+<div id="test"></div>
 
 </body>
 </html>
