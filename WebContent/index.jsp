@@ -78,7 +78,7 @@
 
 <table id="dg" title="DataGrid" style="width:100%;height:80%" data-options="
 				singleSelect:true,
-				data:data
+				url:'datagrid_data1.json'
 			">
   <thead>
   <tr>
