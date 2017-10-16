@@ -78,11 +78,11 @@
 
 <table id="dg" title="DataGrid" style="width:100%;height:80%" data-options="
 				singleSelect:true,
-				url:'datagrid_data1.json'
+				url:'dbData.json'
 			">
   <thead>
   <tr>
-    <th data-options="field:'productid',width:70,align:'center'">项目编号</th>
+    <th data-options="field:'projectNo',width:70,align:'center'">项目编号</th>
    <th data-options="field:'productname',width:70,align:'center'">项目名称</th>
     <th data-options="field:'level',width:70,align:'center'">城市级别</th>
    <th data-options="field:'status',width:70,align:'center'">甲方单位</th>

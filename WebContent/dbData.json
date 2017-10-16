@@ -1,0 +1,39 @@
+{
+   "rows":
+   [
+      {
+         "id":1,
+         "projectNo":"项目标号1",
+         "projectName":"项目名称1",
+         "projectProvince":"项目所属省1",
+         "projectCity":"项目所属市",
+         "projectArea":"项目所属区域1",
+         "cityLevel":"城市级别1",
+         "trareType":0,
+         "bidUnit":"甲方单位名称",
+         "bidConcatTel":"甲方单位电话",
+         "fixBidDate":null,
+         "widbidAmount":"1",
+         "widbidConcatTel":"1",
+         "widbidProduct":"1"
+      },
+      {
+         "id":2,
+         "projectNo":"2",
+         "projectName":"2",
+         "projectProvince":"2",
+         "projectCity":"2",
+         "projectArea":"2",
+         "cityLevel":"2",
+         "trareType":2,
+         "bidUnit":"2",
+         "bidConcatTel":"2",
+         "fixBidDate":null,
+         "widbidAmount":"2",
+         "widbidConcatTel":"2",
+         "widbidProduct":"2"
+      }
+
+   ]
+
+}
