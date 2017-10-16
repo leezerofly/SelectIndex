@@ -59,6 +59,8 @@ public class DataServlet extends HttpServlet {
 	            JsonObject object = new JsonObject();  
 	            JsonArray array = new JsonArray();  
 	            
+	            int total = 0;
+	            
 	            if(rs != null ) {
 	            	while (rs.next()) {  
 	            		  
@@ -71,7 +73,7 @@ public class DataServlet extends HttpServlet {
 	                    ob.addProperty("projectCity", rs.getString("project_city"));  
 	                    ob.addProperty("projectArea", rs.getString("project_area"));
 	                    ob.addProperty("cityLevel", rs.getString("city_level"));
-	                    ob.addProperty("trareType", rs.getInt("trare_type"));
+	                    ob.addProperty("trareType", rs.getString("trare_type"));
 	                    ob.addProperty("bidUnit", rs.getString("bid_unit"));
 	                    ob.addProperty("bidConcatTel", rs.getString("bid_concat_tel"));
 	                    ob.addProperty("fixBidDate", rs.getString("fix_bid_date"));
@@ -80,10 +82,13 @@ public class DataServlet extends HttpServlet {
 	                    ob.addProperty("widbidProduct", rs.getString("widbid_product"));
 	                    
 	                    array.add(ob);  
+	                    total++;
 	      
 	                }  
 	            	
 	            	PrintWriter out = response.getWriter();
+	            	//String sTotal = "total\":"+total+",\"";
+	            	//String srows = "rows";
 	                object.add("rows", array);  
 	                out.print(object.toString()); 
 	                

@@ -82,7 +82,7 @@ public class JsonFormatTool {
         return result.toString();
     }
 
-    /**
+	/**
      * 返回指定次数的缩进字符串。每一次缩进三个空格，即SPACE。
      * 
      * @param number 缩进次数。
