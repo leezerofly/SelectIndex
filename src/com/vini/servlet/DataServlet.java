@@ -17,6 +17,8 @@ import com.vini.dao.JDBConnection;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import com.vini.servlet.CreateJsonServlet;
+
 /**
  * Servlet implementation class DataServlet
  */
@@ -46,6 +48,8 @@ public class DataServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		response.setContentType ( "text/html;charset=UTF-8" ) ;
+		
 		JDBConnection con=new JDBConnection();
 		if(con.createConnection()) {
 			try {  
@@ -54,6 +58,8 @@ public class DataServlet extends HttpServlet {
 	  
 	            JsonObject object = new JsonObject();  
 	            JsonArray array = new JsonArray();  
+	            
+	            int total = 0;
 	            
 	            if(rs != null ) {
 	            	while (rs.next()) {  
@@ -65,15 +71,29 @@ public class DataServlet extends HttpServlet {
 	                    ob.addProperty("projectName", rs.getString("project_name"));  
 	                    ob.addProperty("projectProvince", rs.getString("project_province"));  
 	                    ob.addProperty("projectCity", rs.getString("project_city"));  
-	                    ob.addProperty("projectArea", rs.getString("project_area"));  
-	      
+	                    ob.addProperty("projectArea", rs.getString("project_area"));
+	                    ob.addProperty("cityLevel", rs.getString("city_level"));
+	                    ob.addProperty("trareType", rs.getString("trare_type"));
+	                    ob.addProperty("bidUnit", rs.getString("bid_unit"));
+	                    ob.addProperty("bidConcatTel", rs.getString("bid_concat_tel"));
+	                    ob.addProperty("fixBidDate", rs.getString("fix_bid_date"));
+	                    ob.addProperty("widbidAmount", rs.getString("widbid_amount"));
+	                    ob.addProperty("widbidConcatTel", rs.getString("widbid_concat_tel"));
+	                    ob.addProperty("widbidProduct", rs.getString("widbid_product"));
+	                    
 	                    array.add(ob);  
+	                    total++;
 	      
 	                }  
 	            	
 	            	PrintWriter out = response.getWriter();
-	                object.add("News", array);  
+	            	//String sTotal = "total\":"+total+",\"";
+	            	//String srows = "rows";
+	                object.add("rows", array);  
 	                out.print(object.toString()); 
+	                
+	                CreateJsonServlet cre = new CreateJsonServlet();
+	                cre.createJsonFile(object.toString(),"/workspace/Eclipse/SelectIndex/WebContent","dbData");
 	            }else {
 	            	System.out.print("≤È—Ø ß∞‹");
 	            }

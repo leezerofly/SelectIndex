@@ -4,8 +4,6 @@ package com.vini.dao;
 import java.sql.*;  
 import com.microsoft.sqlserver.jdbc.*;  
 
-import com.vini.config.SQLDatebase;
-
 public class JDBConnection {  
 //	private final String dbDriver="com.mysql.jdbc.Driver";
 //	private final String url="jdbc:sqlserver://localhost:1433";

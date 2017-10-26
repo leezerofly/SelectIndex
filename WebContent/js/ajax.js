@@ -23,8 +23,6 @@ loadXMLDoc("DataServlet",function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-	  var data = xmlhttp.responseText;
-	  document.getElementById("test").innerHTML=xmlhttp.responseText;
     }
   });
 }
